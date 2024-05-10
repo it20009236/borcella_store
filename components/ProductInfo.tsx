@@ -20,25 +20,27 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
   return (
     <div className="max-w-[400px] flex flex-col gap-4">
       <div className="flex justify-between items-center">
-        <p className="text-heading3-bold">{productInfo.title}</p>
+        <p className="text-heading3-bold text-hover">{productInfo.title}</p>
         <HeartFavorite product={productInfo} />
       </div>
 
       <div className="flex gap-2">
-        <p className="text-base-medium text-grey-2">Category:</p>
-        <p className="text-base-bold">{productInfo.category}</p>
+        <p className="text-base-medium text-grey-2 text-hover">Category:</p>
+        <p className="text-base-bold text-hover">{productInfo.category}</p>
       </div>
 
-      <p className="text-heading3-bold">$ {productInfo.price}</p>
+      <p className="text-heading3-bold text-hover">$ {productInfo.price}</p>
 
       <div className="flex flex-col gap-2">
-        <p className="text-base-medium text-grey-2">Description:</p>
-        <p className="text-small-medium">{productInfo.description}</p>
+        <p className="text-base-medium text-grey-2 text-hover">Description:</p>
+        <p className="text-small-medium text-hover">
+          {productInfo.description}
+        </p>
       </div>
 
       {productInfo.colors.length > 0 && (
         <div className="flex flex-col gap-2">
-          <p className="text-base-medium text-grey-2">Colors:</p>
+          <p className="text-base-medium text-grey-2 text-hover">Colors:</p>
           <div className="flex gap-2">
             {productInfo.colors.map((color, index) => (
               <p
@@ -57,7 +59,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
 
       {productInfo.sizes.length > 0 && (
         <div className="flex flex-col gap-2">
-          <p className="text-base-medium text-grey-2">Sizes:</p>
+          <p className="text-base-medium text-grey-2 text-hover">Sizes:</p>
           <div className="flex gap-2">
             {productInfo.sizes.map((size, index) => (
               <p
@@ -75,7 +77,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
       )}
 
       <div className="flex flex-col gap-2">
-        <p className="text-base-medium text-grey-2">Quantity:</p>
+        <p className="text-base-medium text-grey-2 text-hover">Quantity:</p>
         <div className="flex gap-4 items-center">
           <MinusCircle
             className="hover:text-red-1 cursor-pointer"
@@ -90,7 +92,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
       </div>
 
       <button
-        className="outline text-base-bold py-3 rounded-lg hover:bg-black hover:text-white"
+        className="outline text-base-bold py-3 rounded-lg hover:bg-black hover:text-white text-hover"
         onClick={() => {
           cart.addItem({
             item: productInfo,

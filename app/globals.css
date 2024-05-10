@@ -6,4 +6,9 @@ html,
 body,
 :root {
   height: 100%;
+
+}
+
+.text-hover:hover {
+  font-size: 200%;
 }

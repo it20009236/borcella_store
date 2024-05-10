@@ -9,11 +9,11 @@ interface ProductCardProps {
   updateSignedInUser?: (updatedUser: UserType) => void;
 }
 
-const ProductCard = ({ product, updateSignedInUser }: ProductCardProps ) => {
+const ProductCard = ({ product, updateSignedInUser }: ProductCardProps) => {
   return (
     <Link
       href={`/products/${product._id}`}
-      className="w-[220px] flex flex-col gap-2"
+      className="w-[220px] flex flex-col gap-2 text-hover"
     >
       <Image
         src={product.media[0]}
@@ -23,12 +23,17 @@ const ProductCard = ({ product, updateSignedInUser }: ProductCardProps ) => {
         className="h-[250px] rounded-lg object-cover"
       />
       <div>
-        <p className="text-base-bold">{product.title}</p>
-        <p className="text-small-medium text-grey-2">{product.category}</p>
+        <p className="text-base-bold text-hover">{product.title}</p>
+        <p className="text-small-medium text-grey-2 text-hover">
+          {product.category}
+        </p>
       </div>
       <div className="flex justify-between items-center">
-        <p className="text-body-bold">${product.price}</p>
-        <HeartFavorite product={product} updateSignedInUser={updateSignedInUser} />
+        <p className="text-body-bold text-hover">${product.price}</p>
+        <HeartFavorite
+          product={product}
+          updateSignedInUser={updateSignedInUser}
+        />
       </div>
     </Link>
   );
